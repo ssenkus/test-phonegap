@@ -22,6 +22,7 @@ var EmployeeView = function (employee) {
     };
     this.addToContacts = function (event) {
         event.preventDefault();
+        
         console.log('addToContacts');
         if (!navigator.contacts) {
             app.showAlert("Contacts API not supported", "Error");
@@ -34,7 +35,7 @@ var EmployeeView = function (employee) {
         phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true); // preferred number
         contact.phoneNumbers = phoneNumbers;
         contact.save();
-        alert(123)
+        app.showAlert('SAVED!');
         return false;
     };
     this.initialize();
